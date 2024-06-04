@@ -1,6 +1,8 @@
 const express = require('express');
 const handlebars = require('express-handlebars')
 const path = require('path');
+const { getAllMovies, getMovieById } = require('./services/movieService');
+const { log } = require('console');
 
 const app = express();
 const port = 5000;
@@ -13,17 +15,23 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static('src/static'))
 
-app.get('/', (req, res) => {
-    res.render('home', { layout: false });
+app.get('/', async (req, res) => {
+    const movies = await getAllMovies();
+    res.render('home', { movies });
 })
 app.get('/create', (req, res) => {
-    res.render('create', { layout: false });
+    res.render('create');
 })
 app.get('/search', (req, res) => {
-    res.render('search', { layout: false });
+    res.render('search');
 })
 app.get('/about', (req, res) => {
-    res.render('about', { layout: false });
+    res.render('about');
+})
+app.get('/details/:id', async (req, res) => {
+    const id = req.params.id;
+    const movie = await getMovieById(id);
+    res.render('details', { movie });
 })
 app.get('/*', (req, res) => {
     res.render('404', { layout: false });
