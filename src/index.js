@@ -16,5 +16,14 @@ app.use(express.static('src/static'))
 app.get('/', (req, res) => {
     res.render('home', { layout: false });
 })
+app.get('/create', (req, res) => {
+    res.render('create', { layout: false });
+})
+app.get('/search', (req, res) => {
+    res.render('search', { layout: false });
+})
+app.get('/about', (req, res) => {
+    res.render('about', { layout: false });
+})
 
 app.listen(port, () => console.log(`Server is listening on port ${port}...`));
