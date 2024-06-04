@@ -25,5 +25,7 @@ app.get('/search', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about', { layout: false });
 })
-
+app.get('/*', (req, res) => {
+    res.render('404', { layout: false });
+})
 app.listen(port, () => console.log(`Server is listening on port ${port}...`));
