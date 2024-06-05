@@ -31,6 +31,7 @@ app.get('/about', (req, res) => {
 app.get('/details/:id', async (req, res) => {
     const id = req.params.id;
     const movie = await getMovieById(id);
+    movie.starRating = '&#x2605;'.repeat(movie.rating);
     res.render('details', { movie });
 })
 app.get('/*', (req, res) => {
