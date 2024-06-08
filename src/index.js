@@ -21,8 +21,11 @@ async function start() {
         const movies = await getAllMovies();
         res.render('home', { movies });
     })
-    app.get('/create', (req, res) => {
+    app.get('/create/movie', (req, res) => {
         res.render('create');
+    })
+    app.get('/create/cast', (req, res) => {
+        res.render('cast-create');
     })
     app.get('/search', (req, res) => {
         res.render('search');
