@@ -19,11 +19,11 @@ const castSchema = new Schema({
         type: String,
         required: true
     },
-    ImageURL: {
+    imageUrl: {
         type: String,
         required: true
     },
-    name: {
+    movie: {
         type: Types.ObjectId,
         ref: 'Movie'
     }

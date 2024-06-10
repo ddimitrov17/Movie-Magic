@@ -18,7 +18,7 @@ module.exports = {
             return;
         }
 
-        const result = await createCast(req.body);
+        await createCast(req.body);
 
         res.redirect('/');
     }

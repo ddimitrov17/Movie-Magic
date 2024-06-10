@@ -16,7 +16,7 @@ router.get('/create/movie', createGet);
 router.get('/create/cast', createCastGet);
 router.get('/search', search);
 router.post('/create/movie', createPost);
-router.post('/create/movie', createCastPost);
+router.post('/create/cast', createCastPost);
 
 router.get('*', notFound);
 
