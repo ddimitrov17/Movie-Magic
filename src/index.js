@@ -1,7 +1,6 @@
 const express = require('express');
 const handlebars = require('express-handlebars')
 const path = require('path');
-const { getAllMovies, getMovieById } = require('./services/movieService');
 const { configDatabase } = require('./config/database');
 const { router } = require('./config/routes');
 const { configExpress } = require('./config/express');

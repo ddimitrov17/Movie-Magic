@@ -8,6 +8,7 @@ module.exports = {
     },
     details: async (req, res) => {
         const id = req.params.id;
+        console.log(req.params);
         const movie = await getMovieById(id);
 
         if (!movie) {
