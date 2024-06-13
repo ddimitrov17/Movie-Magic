@@ -12,11 +12,8 @@ module.exports = {
         }
 
         const allCast = await getAllCast();
-        const castInMovie = Array.isArray(movie.cast) ? movie.cast.map(id => id.toString()) : [];
+        const castInMovie = movie.cast.map(id => id.toString());
 
-    res.render('cast-attach', { 
-        movie, 
-        allCast: allCast.filter(c => !castInMovie.includes(c._id.toString())) 
-    });
+        res.render('cast-attach', { movie, allCast: allCast.filter(c => !castInMovie.find(castId => castId == c._id.toString())) });
     }
 }
