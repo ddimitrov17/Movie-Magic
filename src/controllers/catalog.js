@@ -19,7 +19,8 @@ module.exports = {
 
         res.render('details', { movie });
     },
-    search: (req, res) => {
-        res.render('search');
+    search: async (req, res) => {
+        const movies = await getAllMovies();
+        res.render('search', { movies }); // TODO Search
     }
 };
