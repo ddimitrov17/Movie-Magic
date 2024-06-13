@@ -4,7 +4,7 @@ const { about } = require('../controllers/about');
 const { home, details, search } = require('../controllers/catalog');
 const { createGet, createPost } = require('../controllers/createMovie');
 const { createGet: createCastGet , createPost: createCastPost} = require('../controllers/createCast');
-const { attachGet } = require('../controllers/attach');
+const { attachGet, attachPost } = require('../controllers/attach');
 
 
 
@@ -20,6 +20,7 @@ router.get('/attach/:id',attachGet);
 
 router.post('/create/movie', createPost);
 router.post('/create/cast', createCastPost);
+router.post('/attach/:id',attachPost);
 
 router.get('*', notFound);
 
