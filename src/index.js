@@ -5,6 +5,7 @@ const { configDatabase } = require('./config/database');
 const { router } = require('./config/routes');
 const { configExpress } = require('./config/express');
 const { configHbs } = require('./config/hbs');
+const { userRouter } = require('./controllers/user');
 
 const app = express();
 const port = 5000;
