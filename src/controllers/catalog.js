@@ -1,4 +1,4 @@
-const { getAllMovies, getMovieById } = require('../services/movieService');
+const { getAllMovies, getMovieById, updateMovie, deleteMovie } = require('../services/movieService');
 
 module.exports = {
     home: async (req, res) => {
@@ -28,5 +28,21 @@ module.exports = {
         const id=req.params.id;
         const movie = await getMovieById(id);
         res.render('edit', { movie });
+    },
+    editPost: async (req,res) => {
+        const id=req.params.id;
+        const movieData = req.body;
+        await updateMovie(id,movieData);
+        res.redirect('/details/' + id);
+    },
+    deleteGet: async (req,res) => {
+        const id=req.params.id;
+        const movie=await getMovieById(id);
+        res.render('delete', { movie });
+    },
+    deletePost: async (req,res) => {
+        const id=req.params.id;
+        await deleteMovie(id);
+        res.redirect('/');
     }
 };

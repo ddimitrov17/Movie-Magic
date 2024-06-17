@@ -14,11 +14,12 @@ module.exports = {
             rating: !req.body.rating,
             description: !req.body.description
         };
+        req.body.author = req.user._id;
+        console.log(req.user._id);
         if (Object.values(errors).includes(true)) {
-            res.render('create', { movie: req.body, errors });
+            // res.render('create', { movie: req.body, errors });
             return;
         }
-
         const result = await createMovie(req.body);
 
         res.redirect('/details/' + result._id);

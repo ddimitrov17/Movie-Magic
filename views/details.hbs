@@ -22,7 +22,7 @@
             {{#if isAuthor}}
             <div class="details-btn">
                 <a href="/edit/{{movie._id}}" id="edit-button">Edit</a>
-                <a href="" id="delete-button">Delete</a>
+                <a href="/delete/{{movie._id}}" id="delete-button">Delete</a>
             </div>
             {{/if}}
         </div>
@@ -32,7 +32,7 @@
     </div>
 
     <div class="main-cast-card">
-        {{#each cast}}
+        {{#each movie.cast}}
         {{> castPartial}}
         {{/each}}
     </div>
