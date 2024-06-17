@@ -38,6 +38,10 @@ const movieSchema = new Schema({
         type: [Types.ObjectId],
         ref: 'Cast',
         default: []
+    },
+    author: {
+        type: Types.ObjectId,
+        ref: 'User'
     }
 });
 const Movie = model('Movie', movieSchema);

@@ -29,7 +29,7 @@ module.exports = {
     },
     loginPost: async (req, res) => {
         const { email, password } = req.body;
-        console.log(`Logged in as ${email}`);
+        console.log(`Logged in as ${email}`); // To delete
         let errors = [];
 
         if (!email || !password) {
