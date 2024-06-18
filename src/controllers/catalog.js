@@ -27,6 +27,14 @@ module.exports = {
     editGet: async (req,res) => {
         const id=req.params.id;
         const movie = await getMovieById(id);
+        if (!req.user) {
+            res.redirect('/');
+            return;
+        }
+        if (movie.author.toString()!=req.user._id) {
+            res.redirect('/');
+            return;
+        }
         res.render('edit', { movie });
     },
     editPost: async (req,res) => {
@@ -38,6 +46,14 @@ module.exports = {
     deleteGet: async (req,res) => {
         const id=req.params.id;
         const movie=await getMovieById(id);
+        if (!req.user) {
+            res.redirect('/');
+            return;
+        }
+        if (movie.author.toString()!=req.user._id) {
+            res.redirect('/');
+            return;
+        }
         res.render('delete', { movie });
     },
     deletePost: async (req,res) => {
